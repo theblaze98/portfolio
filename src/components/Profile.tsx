@@ -1,5 +1,5 @@
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
-import profileImg from '../assets/profile.jpg'
+import profileImg from '@/assets/profile.jpg'
 
 export default function Profile() {
 	return (
@@ -15,17 +15,19 @@ export default function Profile() {
 					Dionicio Vargas
 				</h1>
 				<a
-					href='#'
+					href='https://github.com/theblaze98'
+					target='_blank'
 					className='flex gap-2 items-center text-light-text-200 dark:text-dark-text-200 text-sm ml-4'>
 					<FaGithub /> theblaze98
 				</a>
 				<a
-					href='#'
+					href='https://linkedin.com/in/dionicio-vargas-832821237/'
+					target='_blank'
 					className='flex gap-2 items-center text-light-text-200 dark:text-dark-text-200 text-sm ml-4'>
 					<FaLinkedin /> Dionicio Vargas
 				</a>
 				<a
-					href='#'
+					href='mailto:dioniciovargas1226@gmail.com?Subject=Hola%20Dionicio%20%F0%9F%91%8B'
 					className='flex gap-2 items-center text-light-text-200 dark:text-dark-text-200 text-xs ml-4'>
 					<FaEnvelope /> dioniciovargas1226@gmail.com
 				</a>
