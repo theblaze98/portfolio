@@ -1,13 +1,16 @@
+'use client'
 import { useState } from 'react'
 import { ThemeContext } from './ThemeContext'
 
 type props = {
-	children: JSX.Element | JSX.Element[]
+	children: React.ReactNode
 }
 
 export function ThemeProvider({ children }: props) {
 	const [theme, setTheme] = useState<string>(
-		localStorage.getItem('theme') || 'dark'
+		typeof window !== 'undefined'
+			? window.localStorage.getItem('theme') || 'dark'
+			: 'dark'
 	)
 	const [isDark, setIsDark] = useState<boolean>(
 		theme.includes('dark') ? true : false

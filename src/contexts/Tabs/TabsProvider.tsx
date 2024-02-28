@@ -1,8 +1,9 @@
+'use client'
 import { useState } from 'react'
 import { TabsContext } from './TabsContext'
 
 type props = {
-	children: JSX.Element | JSX.Element[]
+	children: React.ReactNode
 }
 
 export function TabProvider({ children }: props) {

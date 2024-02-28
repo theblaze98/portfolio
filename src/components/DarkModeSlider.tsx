@@ -1,3 +1,4 @@
+'use client'
 import { useContext } from 'react'
 import { FaSun, FaMoon } from 'react-icons/fa'
 import { ThemeContext } from '../contexts/Theme'

@@ -1,10 +1,16 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
+
+const config: Config = {
 	content: [
-    "./index.html",
-    "./src/**/*.{tsx,ts,jsx,js}"
-  ],
+		'./src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
+	],
 	theme: {
+		fontFamily: {
+			sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+		},
 		extend: {
 			colors: {
 				dark: {
@@ -37,3 +43,4 @@ export default {
 	darkMode: 'class',
 	plugins: [],
 }
+export default config

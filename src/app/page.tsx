@@ -1,13 +1,14 @@
-import { useEffect, useContext } from 'react'
-import { ThemeContext } from './contexts/Theme'
-import { TabsContext } from './contexts/Tabs'
-import DarkModeSlider from './components/DarkModeSlider'
-import Profile from './components/Profile'
-import Tabs from './components/Tabs'
-import Home from './components/Home'
-import Projects from './components/Projects'
+'use client'
+import { useContext, useEffect } from 'react'
+import DarkModeSlider from '@/components/DarkModeSlider'
+import Home from '@/components/Home'
+import Profile from '@/components/Profile'
+import Projects from '@/components/Projects'
+import Tabs from '@/components/Tabs'
+import { TabsContext } from '@/contexts/Tabs'
+import { ThemeContext } from '@/contexts/Theme'
 
-export default function App() {
+export default function MainPage() {
 	const { theme } = useContext(ThemeContext)
 	const { currentTab } = useContext(TabsContext)
 
@@ -17,7 +18,6 @@ export default function App() {
 		inicio: <Home />,
 		proyectos: <Projects />,
 	}
-
 	useEffect(() => {
 		document.body.classList.toggle('dark', theme === 'dark')
 	}, [theme])
