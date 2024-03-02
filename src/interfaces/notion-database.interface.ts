@@ -19,8 +19,12 @@ export interface Datum {
 }
 
 export interface CreatedBy {
-	object: string
+	object: Object
 	id: string
+}
+
+export enum Object {
+	User = 'user',
 }
 
 export interface Icon {
@@ -38,6 +42,9 @@ export interface Parent {
 }
 
 export interface Properties {
+	github_url: URL
+	Tecnologias: Tecnologias
+	demo_url: URL
 	'Nombre del proyecto': NombreDelProyecto
 	Propietario: Propietario
 	Estado: Estado
@@ -45,16 +52,7 @@ export interface Properties {
 	Prioridad: Prioridad
 	Fechas: Fechas
 	Resumen: Resumen
-	Tareas: BloqueadoPor
-	'Está bloqueando': BloqueadoPor
-	'Bloqueado por': BloqueadoPor
-}
-
-export interface BloqueadoPor {
-	id: string
-	type: string
-	relation: any[]
-	has_more: boolean
+	Tareas: Tareas
 }
 
 export interface Estado {
@@ -94,11 +92,11 @@ export interface NombreDelProyecto {
 }
 
 export interface Title {
-	type: string
+	type: TitleType
 	text: Text
 	annotations: Annotations
 	plain_text: string
-	href: null
+	href: null | string
 }
 
 export interface Annotations {
@@ -107,18 +105,26 @@ export interface Annotations {
 	strikethrough: boolean
 	underline: boolean
 	code: boolean
-	color: string
+	color: Color
+}
+
+export enum Color {
+	Default = 'default',
 }
 
 export interface Text {
 	content: string
-	link: null
+	link: External | null
+}
+
+export enum TitleType {
+	Text = 'text',
 }
 
 export interface Prioridad {
 	id: string
 	type: string
-	select: Status
+	select: Status | null
 }
 
 export interface Propietario {
@@ -129,6 +135,34 @@ export interface Propietario {
 
 export interface Resumen {
 	id: string
-	type: string
+	type: ResumenType
 	rich_text: Title[]
+}
+
+export enum ResumenType {
+	RichText = 'rich_text',
+}
+
+export interface Tareas {
+	id: string
+	type: string
+	relation: any[]
+	has_more: boolean
+}
+
+export interface Tecnologias {
+	id: string
+	type: string
+	multi_select: Status[]
+}
+
+export interface URL {
+	id: ID
+	type: ResumenType
+	rich_text: Title[]
+}
+
+export enum ID {
+	Ejao = 'Ejao',
+	HVdC = 'hVdC',
 }

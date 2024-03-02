@@ -1,14 +1,15 @@
 'use client'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, Suspense } from 'react'
 import DarkModeSlider from '@/components/DarkModeSlider'
 import Home from '@/components/Home'
 import Profile from '@/components/Profile'
 import Projects from '@/components/Projects'
 import Tabs from '@/components/Tabs'
+import Loader from '@/components/Loader'
 import { TabsContext } from '@/contexts/Tabs'
 import { ThemeContext } from '@/contexts/Theme'
 
-export default function MainPage() {
+export default function Page() {
 	const { theme } = useContext(ThemeContext)
 	const { currentTab } = useContext(TabsContext)
 
@@ -16,7 +17,11 @@ export default function MainPage() {
 
 	const TabsElements: { [key: string]: JSX.Element } = {
 		inicio: <Home />,
-		proyectos: <Projects />,
+		proyectos: (
+			<Suspense fallback={<Loader />}>
+				<Projects />
+			</Suspense>
+		),
 	}
 	useEffect(() => {
 		document.body.classList.toggle('dark', theme === 'dark')
@@ -27,7 +32,7 @@ export default function MainPage() {
 			<div className='fixed flex items-center justify-center right-0 top-10 h-10 w-9 rounded-l-md dark:bg-dark-bg-200 shadow-md dark:shadow-slate-500/25'>
 				<DarkModeSlider />
 			</div>
-			<main className='max-w-2xl w-11/12 flex min-h-screen mx-auto max-md:flex-col py-5 gap-6'>
+			<main className='max-w-4xl w-11/12 flex min-h-screen mx-auto max-md:flex-col py-5 gap-6'>
 				<Profile />
 				<section className='w-2/3 max-md:w-full'>
 					<Tabs elements={elements} />
