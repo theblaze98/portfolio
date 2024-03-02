@@ -14,6 +14,8 @@ export const metadata: Metadata = {
 	title: 'Dionicio Vargas',
 	description:
 		'Soy desarrollador web desde hace un año y me apasiona crear soluciones eficientes y rápidas.',
+	keywords: 'portfolio web developer programador desarrollador_web',
+	icons: 'https://w.wallhaven.cc/full/l8/wallhaven-l8v3ey.png',
 	openGraph: {
 		images: 'https://w.wallhaven.cc/full/l8/wallhaven-l8v3ey.png',
 		url: 'https://dionicio.vercel.app',
