@@ -18,10 +18,7 @@ export default function Home() {
 			<h2 className='text-4xl font-medium'>Hola 👋</h2>
 			<hr className='my-4 h-px border-0 bg-gray-400 dark:bg-slate-700' />
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
-				consequatur nihil quasi nam, esse cum necessitatibus laborum, dolorum
-				deleniti itaque, molestias in minima ratione voluptatum eum aliquam quo
-				eos libero!
+				Soy desarrollador web desde hace un año y me apasiona crear soluciones eficientes y rápidas con distintos lenguajes y herramientas. Me gusta aprender y mejorar constantemente y mi meta es ofrecer productos de calidad.
 			</p>
 			<br />
 			<h2 className='text-2xl font-medium'>Tecnologias</h2>

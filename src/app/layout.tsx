@@ -12,11 +12,12 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
 	title: 'Dionicio Vargas',
-	description: 'Portfolio',
+	description:
+		'Soy desarrollador web desde hace un año y me apasiona crear soluciones eficientes y rápidas.',
 	openGraph: {
 		images: 'https://w.wallhaven.cc/full/l8/wallhaven-l8v3ey.png',
-		url: 'https://dionicio.vercel.app'
-	}
+		url: 'https://dionicio.vercel.app',
+	},
 }
 
 export default function RootLayout({
