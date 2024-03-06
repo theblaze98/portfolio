@@ -31,7 +31,7 @@ export default function RootLayout({
 		<html lang='en'>
 			<body className={poppins.className}>
 				<Providers>
-					<div className='min-h-screen transition-colors duration-500 bg-light-bg-100 text-dark-primary-100 dark:bg-dark-bg-100 dark:text-light-primary-100 '>
+					<div className='min-h-screen bg-light-bg-100 text-dark-primary-100 dark:bg-dark-bg-100 dark:text-light-primary-100 '>
 						{children}
 					</div>
 				</Providers>

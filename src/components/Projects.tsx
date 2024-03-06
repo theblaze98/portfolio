@@ -1,13 +1,22 @@
+"use client"
 import { FaGithub, FaArrowUpRightFromSquare } from 'react-icons/fa6'
-import { NotionDatabaseInterface } from '@/interfaces/notion-database.interface'
+import { Datum, NotionDatabaseInterface } from '@/interfaces/notion-database.interface'
+import { useEffect, useState } from 'react'
 
-export default async function Projects() {
-	const res = await fetch('/api/projects')
-	const data: NotionDatabaseInterface | null = await res.json()
+export default function Projects() {
+	const [projects, setProjects] = useState<Datum[]>();
+	const getProjects = async () => {
+		const res = await fetch('/api/projects')
+		const data: NotionDatabaseInterface =  await res.json()
+		const projectsFilter = data?.data.filter(
+			project => project.properties.Estado.status.id === 'done'
+		)
+		setProjects(projectsFilter);
+	}
 
-	const projects = data?.data.filter(
-		project => project.properties.Estado.status.id === 'done'
-	)
+	useEffect(() => {
+		getProjects()
+	}, [])
 
 	return (
 		<div>

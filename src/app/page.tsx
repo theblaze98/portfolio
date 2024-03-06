@@ -1,13 +1,16 @@
 'use client'
 import { useContext, useEffect, Suspense } from 'react'
+import dynamic from 'next/dynamic'
 import DarkModeSlider from '@/components/DarkModeSlider'
 import Home from '@/components/Home'
 import Profile from '@/components/Profile'
-import Projects from '@/components/Projects'
 import Tabs from '@/components/Tabs'
 import Loader from '@/components/Loader'
 import { TabsContext } from '@/contexts/Tabs'
 import { ThemeContext } from '@/contexts/Theme'
+const Projects = dynamic(() => import('@/components/Projects'), {
+	loading: () => <Loader />,
+})
 
 export default function Page() {
 	const { theme } = useContext(ThemeContext)
@@ -17,11 +20,7 @@ export default function Page() {
 
 	const TabsElements: { [key: string]: JSX.Element } = {
 		inicio: <Home />,
-		proyectos: (
-			<Suspense fallback={<Loader />}>
-				<Projects />
-			</Suspense>
-		),
+		proyectos: <Projects />,
 	}
 	useEffect(() => {
 		document.body.classList.toggle('dark', theme === 'dark')
