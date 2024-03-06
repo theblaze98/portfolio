@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
+import image_metadata from '@/assets/image.png'
 
 const poppins = Poppins({
 	subsets: ['latin'],
@@ -9,15 +10,16 @@ const poppins = Poppins({
 	variable: '--font-poppins',
 	weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 })
-
+// 'https://w.wallhaven.cc/full/l8/wallhaven-l8v3ey.png'
 export const metadata: Metadata = {
 	title: 'Dionicio Vargas',
 	description:
 		'Soy desarrollador web desde hace un año y me apasiona crear soluciones eficientes y rápidas.',
 	keywords: 'portfolio web developer programador desarrollador_web',
-	icons: 'https://w.wallhaven.cc/full/l8/wallhaven-l8v3ey.png',
+	icons: image_metadata.src,
 	openGraph: {
-		images: 'https://w.wallhaven.cc/full/l8/wallhaven-l8v3ey.png',
+		title: 'Dionicio Portfolio',
+		images: image_metadata.src,
 		url: 'https://dionicio.vercel.app',
 	},
 }

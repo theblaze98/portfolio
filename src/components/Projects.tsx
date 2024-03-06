@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { FaGithub, FaArrowUpRightFromSquare } from 'react-icons/fa6'
 import { Datum, NotionDatabaseInterface } from '@/interfaces/notion-database.interface'
 import { useEffect, useState } from 'react'
